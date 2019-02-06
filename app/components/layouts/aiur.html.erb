@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sg</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <style>
+      /* syntax highlighter */
+      <%= Rouge::Themes::Monokai.render(scope: '.highlight') %>
+
+      /* from aiur */
+      @media (min-width: 740px) {
+        body {
+          display: grid;
+          grid-template-columns: 300px auto;
+          grid-template-areas: "nav main";
+          grid-column-gap: 15px;
+          min-height: 100vh;
+        }
+      }
+
+      nav {
+        grid-area: nav;
+        border-right: 1px solid #f3f3f3;
+      }
+
+      main {
+        grid-area: main;
+      }
+
+      component-preview {
+        display: block;
+        border: 2px solid #f3f3f3;
+      }
+
+      component-preview .rendered {
+        width: 100%;
+        border: 0;
+        padding: 1rem 2rem;
+      }
+
+      component-preview pre {
+        background: #f3f3f3;
+        margin: 0;
+        padding: 1rem 2rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <ul>
+        <li>
+          Atoms
+          <ul>
+            <li><a href="/aiur/atoms/strong">Strong</a></li>
+            <li><a href="/aiur/atoms/heading">Heading</a></li>
+          </ul>
+        </li>
+        <li>
+          Molecules
+          <ul>
+            <li><a href="/aiur/molecules/box">Box</a></li>
+          </ul>
+        </li>
+        <li>
+          Templates
+          <ul>
+            <li><a href="/aiur/templates/demo_index">Demo Index</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <main><%= yield %></main>
+  </body>
+</html>
